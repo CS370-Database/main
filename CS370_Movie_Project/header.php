@@ -1,8 +1,9 @@
 <html>
 <head>
     <title>Movie Database Portal</title>
-    <link href="/css/bootstrap.css" rel="stylesheet" />
+    <script src="js/jquery.min.js"></script>
     <script src="/js/bootstrap.bundle.js"></script>
+    <link href="/css/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -44,6 +45,7 @@
             </li>
         </ul>
     </li>
+
 </ul>
 
 <div class="container">

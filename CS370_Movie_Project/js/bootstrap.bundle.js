@@ -6294,6 +6294,10 @@
         }
       };
 
+      $(document).ready(function() {
+        $(".dropdown-toggle").dropdown();
+      });
+
       _proto._transitionComplete = function _transitionComplete(element, active, callback) {
         if (active) {
           $$$1(active).removeClass(ClassName.SHOW + " " + ClassName.ACTIVE);

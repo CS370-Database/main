@@ -38,6 +38,9 @@ if( $_SERVER[ "REQUEST_METHOD"] == "POST") {
     </head>
     <body>
 <h1> Actor Data Import </h1>
+<p1> Upload a CSV file with the new actor data to add the data to the Actor Table</p1>
+<br>
+<br>
 <?php
 if($import_attempted){
     if($import_succeeded) {?>
