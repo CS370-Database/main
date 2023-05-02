@@ -4,7 +4,7 @@ $import_succeeded = false;
 $import_error_message = "";
 if( $_SERVER[ "REQUEST_METHOD"] == "POST") {
     $import_attempted = true;
-    $con = @mysqli_connect("localhost", "actor_username", "actor_password", "actor_db");
+    $con = @mysqli_connect("localhost", "root", "admin", "movie_db");
     if(mysqli_connect_errno()){
         $import_error_message = "Failed to connect to MySQL: "
             . mysqli_connect_error();
@@ -57,6 +57,10 @@ if($import_attempted){
         <input type="file" name="importFile"/>
     </div>
     <br/><br/>
+    <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/03/11-Great-Movies-About-Being-an-Actor.jpg" style="width: 800px; height: 350px" alt="MovieImage">
+    <br/><br/>
     <input type="submit" value="Upload Data"/>
+
+
 </form>
 <?php include_once("footer.php");?>

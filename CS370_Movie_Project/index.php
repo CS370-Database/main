@@ -8,8 +8,11 @@
 
 </div>
 <body>
-Welcome! Feel free to browse our website using the buttons at the top of the page to upload data and run reports.
+<marquee>
+    Welcome! Feel free to browse our website using the buttons at the top of the page to upload data and run reports.
+</marquee>
 <img src="https://zululandobserver.co.za/wp-content/uploads/sites/56/2018/07/Movie.jpg" alt="MovieImage">
 </body>
 
 <?php include_once("footer.php")?>
+
