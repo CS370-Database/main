@@ -4,21 +4,37 @@ $import_succeeded = false;
 $import_error_message = "";
 if( $_SERVER[ "REQUEST_METHOD"] == "POST") {
     $import_attempted = true;
-    $con = @mysqli_connect("localhost", "movie_username", "movie_password", "movie_db");
+    $con = @mysqli_connect("localhost:3306", "root", "password", "movie_db");
     if(mysqli_connect_errno()){
         $import_error_message = "Failed to connect to MySQL: "
             . mysqli_connect_error();
     } else {
         try {
             $contents = file_get_contents($_FILES["importFile"]["tmp_name"]);
-            $lines = explode("/n", $contents);
+            $lines = explode("\n", $contents);
+            $update_counter=0;
+            $insert_counter=0;
             foreach($lines as $line) {
                 $parsed_csv_line = str_getcsv($line);
-                //TODO: do something with the parsed data
-                //Check if columns in table, then check if certain columns in other tables.
-                // For full credit, track how many rows were inserted vs updated in each entity
-                echo implode("; ", $parsed_csv_line) . "<br/>";
+                $name = $parsed_csv_line[0];
+                $rating = $parsed_csv_line[1];
+                $studio = $parsed_csv_line[2];
+                $sql_select = 'SELECT * FROM movie WHERE Name="'.$name.'"';
+                $result = $con->query($sql_select);
+                if($result->num_rows > 0) {
+                    $sql_update = 'UPDATE movie SET Rating="'.$rating.'", Studio_Studio_ID='.$studio.' WHERE Name="'.$name.'"';
+                    $update_counter++;
+                    $con->query($sql_update);
+                }
+                else {
+                    $sql_insert = 'INSERT INTO movie (Name, Rating, Studio_Studio_ID) VALUES ("'.$name.'","'.$rating.'",'.$studio.')';
+                    $insert_counter++;
+                    $con->query($sql_insert);
+                }
             }
+            echo "Uploaded " . $update_counter+$insert_counter . " rows of data." . "<br/>";
+            echo $update_counter . " rows were updated. <br/>";
+            echo $insert_counter . " rows were inserted. <br/>";
             $import_succeeded = true;
         }
         catch(Error $exception) {
@@ -38,7 +54,7 @@ if( $_SERVER[ "REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <h1> Movie Data Import </h1>
-<p1> Upload a CSV file with the new movie data to add the data to the Movie Table</p1>
+<p1> Upload a CSV file with the new movie data to add the data to the Movie Table or update existing records.</p1>
 <br>
 <br>
 

@@ -2,7 +2,7 @@
 $connection_error = false;
 $connection_error_message = "";
 
-$con = @mysqli_connect("localhost", "movie_username", "movie_password", "movie_database");
+$con = @mysqli_connect("localhost", "root", "password", "pizza");
 if(mysqli_connect_errno()) {
     $connection_error = true;
     $connection_error_message = "Failed to connect to MySQL: " . mysqli_connect_error();
