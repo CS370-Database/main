@@ -73,6 +73,8 @@ if($import_attempted){
         <input type="file" name="importFile"/>
     </div>
     <br/><br/>
+    <img src="https://static1.colliderimages.com/wordpress/wp-content/uploads/2022/03/11-Great-Movies-About-Being-an-Actor.jpg" style="width: 800px; height: 350px" alt="MovieImage">
+    <br/><br/>
     <input type="submit" value="Upload Data"/>
 </form>
 <?php include_once("footer.php");?>

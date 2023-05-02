@@ -73,6 +73,8 @@ if($import_attempted){
         <input type="file" name="importFile"/>
     </div>
     <br/><br/>
+    <img src="https://www.indiewire.com/wp-content/uploads/2013/06/ratatouille-04162012-1.jpg" style="width: 500px; height: 350px" alt="MovieImage">
+    <br/><br/>
     <input type="submit" value="Upload Data"/>
 </form>
 <?php include_once("footer.php");?>

@@ -74,6 +74,9 @@ if($import_attempted){
         <input type="file" name="importFile"/>
     </div>
     <br/><br/>
+    <img src="https://cdn.pixabay.com/photo/2016/03/31/18/36/cinema-1294496__340.png" alt="MovieImage">
+    <br/>
+    <br/>
     <input type="submit" value="Upload Data"/>
 </form>
 <?php include_once("footer.php");?>
